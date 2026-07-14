@@ -1,0 +1,26 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: admin
+
+        - id: developer
+          password: developer
+
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+
+        - "Overall/Read:developer"
+        - "View/Read:developer"
+
+        - "Job/Read:developer"
+        - "Job/Discover:developer"
+        - "Job/Build:developer"
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
